@@ -1,0 +1,71 @@
+<template>
+  <div class="waaper">
+    <ul class="manu">
+      <li>
+        <router-link :to="{ name: 'tabPage'}">1.tab-page[页面tab切换子页面]</router-link>
+      <li>
+        <router-link :to="{ name: 'Bss', params: { source: 'bbs' }}">2.页面地址参数获取</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'Solt'}">3.slot</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'Resolve'}">4.Resolve</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'JsEs6'}">5.es6语法</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'Axios'}">6.axios请求axios接口请求</router-link>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'hello',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App',
+      info: {
+        thread: {
+          message: ''
+        }
+      }
+    }
+  },
+  created () {
+  },
+  methods: {
+    torouter () {
+      this.$router.push('/Bss/home')
+    }
+  }
+}
+</script>
+
+<style scoped>
+  a {
+    color: #42b983;
+    text-decoration: none;
+  }
+
+  .manu li {
+    text-align: left;
+    padding: 10px;
+    position: relative;
+  }
+
+  .manu li:after {
+    content: '';
+    left: 10px;
+    bottom: 0;
+    right: 10px;
+    border-bottom: 1px solid #e4e5e6;
+    transform-origin: 0 100%;
+    transform: scaley(0.5);
+    position: absolute;
+    height: 1px;
+  }
+</style>
