@@ -9,6 +9,7 @@ import Resolve from '../view/resolve.vue'
 import ceshiA from '@/components/ceshi-a'
 import CeshiB from '@/components/ceshi-b'
 import Axios from '../view/axios'
+import ScrollLeft from '../view/scrollLeft'
 Vue.use(Router)
 
 export default new Router({
@@ -51,6 +52,11 @@ export default new Router({
         {path: 'ceshiA', component: ceshiA},
         { path: 'CeshiB', component: CeshiB }
       ]
-    }
+    },
+    {
+      path: '/ScrollLeft',
+      name: 'ScrollLeft',
+      component: ScrollLeft
+    },
   ]
 })

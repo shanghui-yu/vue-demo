@@ -18,6 +18,9 @@
       <li>
         <router-link :to="{ name: 'Axios'}">6.axios请求axios接口请求</router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'ScrollLeft'}">7.ScrollLeft左右滚动</router-link>
+      </li>
     </ul>
   </div>
 </template>
