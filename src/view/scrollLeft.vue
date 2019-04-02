@@ -2,8 +2,12 @@
   <div>
     <h1>左右滚动加载</h1>
     <div class="wraper">
-      <ul @touchstart="touchStart" @touchend="touchEnd" @touchmove="isScroll" :style="`transform:translate(${x}px,0px) translateZ(0px)`" ref="ul">
-        <li v-for="item in numbs">{{item}}</li>
+      <ul @touchstart.prevent="touchStart" 
+        @touchend.prevent="touchEnd" 
+        @touchmove.prevent="touchMove" 
+        :style="`transform:translate(${x}px,0px) translateZ(0px)`" 
+        ref="ul">
+        <li v-for="item in numbs" :key="item.id">{{item}}</li>
       </ul>
     </div>
   </div>
@@ -19,8 +23,12 @@ export default {
       loading:false,
       x:0,
       startX:0,
+      starty:0,
       endX:0,
-      scrollX:0
+      scrollX:0,
+      dir:'',
+      offsetWidth:'',
+      beginStatus:false
     }
   },
   components: {
@@ -30,30 +38,44 @@ export default {
   mounted() {
   },
   methods: {
-    isScroll(e){
-      var touch = e.targetTouches[0];
-      this.x=touch.pageX-this.startX+this.scrollX
-       console.log(this.x);
-      // let target=e.target
-      // if (target.scrollLeft<20 &&this.loading) {
-      //   this.loading = false
-      //   let arr = [-8,-7,-6,-5,-2]
-      //   this.numbs=[...arr,...this.numbs]
-      //   // target.scrollLeft = 810
-      //   this.x=810
-      //   console.log(target.scrollLeft)
-      // }
-    },
+    /**
+     * @Author: yushanghui
+     * @description: 记录开始点击的位置 
+     * @param {type} 
+     * @Date: 2019-03-27 17:02:06
+     */
     touchStart(e){
-      this.scrollX = this.scrollX+this.x
-      var touch = e.targetTouches[0];
-      this.startX = touch.pageX
-      console.log(touch.pageX,'start');
+      this.startX = e.targetTouches[0].pageX
+      this.starty = e.targetTouches[0].pageY
+      // this.offsetWidth= this.$refs.ul
+      console.log(this.startX,this.starty,'start');
+      this.beginStatus = true
+    },
+     touchMove(e){
+      let touch = e.targetTouches[0];
+      let distanceX = touch.pageX-this.startX;
+      let distanceY = touch.pageY-this.starty;
+      this.x=distanceX+this.scrollX
+      if (Math.abs(distanceX)>Math.abs(distanceY) && distanceX>0) {
+        this.x=distanceX+this.scrollX
+      } else if(Math.abs(distanceX)>Math.abs(distanceY) && distanceX<0){
+        this.x=distanceX+this.scrollX
+      } else if(Math.abs(distanceX)<Math.abs(distanceY) && distanceY<0){
+          console.log('往上滑动');
+      } else if(Math.abs(distanceX)<Math.abs(distanceY) && distanceY>0){
+          console.log('往下滑动');
+      } else{
+          console.log('点击未滑动');
+      }
+      let ul = this.$refs.ul
+      console.log(ul.getBoundingClientRect().right, window.innerWidth + 100,'end');
     },
     touchEnd(e){
-      var touch = e.targetTouches[0];
-      // this.x=this.endX-this.startX
-      console.log(this.x-this.scrollX,'end');
+      let ul = this.$refs.ul
+      if (ul.getBoundingClientRect().right<window.innerWidth-100) {
+        // this.x = this.offsetWidth
+      }
+       this.scrollX =this.x
     }
   }
 }
