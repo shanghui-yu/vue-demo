@@ -10,8 +10,9 @@ import ceshiA from '@/components/ceshi-a'
 import CeshiB from '@/components/ceshi-b'
 import Axios from '../view/axios'
 import ScrollLeft from '../view/scrollLeft'
+import Decorate from '../view/decorate'
+import Vuexs from '@/view/vuex.vue'
 Vue.use(Router)
-
 export default new Router({
   routes: [
     {
@@ -58,5 +59,15 @@ export default new Router({
       name: 'ScrollLeft',
       component: ScrollLeft
     },
+    {
+      path: '/Decorate',
+      name: 'Decorate',
+      component: Decorate
+    },
+    {
+      path: '/Vuexs',
+      name: 'Vuexs',
+      component: Vuexs
+    }
   ]
 })

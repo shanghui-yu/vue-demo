@@ -21,6 +21,12 @@
       <li>
         <router-link :to="{ name: 'ScrollLeft'}">7.ScrollLeft左右滚动</router-link>
       </li>
+      <li>
+        <router-link :to="{ name: 'Decorate'}">8.修饰符</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'Vuexs'}">9.vuex</router-link>
+      </li>
     </ul>
   </div>
 </template>
