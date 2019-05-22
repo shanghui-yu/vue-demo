@@ -18,11 +18,38 @@ export default {
     arr1: [1, 2, 3]
   }),
   created () {
-    console.log()
+    let p1=new Promise((resolve,reject)=>{
+     this.func1(resolve)
+    })
+    let p2=new Promise((resolve,reject)=>{
+      this.func2(resolve)
+    })
+    let p3=new Promise((resolve,reject)=>{
+      this.func3(resolve)
+    })
+    Promise.all([p1,p2,p3]).then(res=>{
+      console.log(6)
+    })
+    
   },
   methods: {
     resolve (b) {
       return [].push(...b)
+    },
+    func1(resolve){
+      setTimeout(() => {
+        resolve(console.log(1))
+      }, 100);
+    },
+    func2(resolve){
+      setTimeout(() => {
+        resolve(console.log(2))
+      }, 1000);
+    },
+    func3(resolve){
+      setTimeout(() => {
+        resolve(console.log(3))
+      }, 300);
     }
   }
 }
