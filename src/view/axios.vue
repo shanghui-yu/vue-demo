@@ -27,6 +27,7 @@ export default {
     setTimeout(()=>{
       this.add('asss')
     }, 1000)
+    this.yuyue()
   },
   methods: {
     ...mapMutations({
@@ -37,6 +38,25 @@ export default {
       XHR.artcleDetail({'id':90637 }).then((res)=>{
         let {data ,status} = res.data
         this.datas = data
+      })
+    },
+    yuyue(){
+      function setUuid(key,value){
+          document.cookie = key+'='+value+';domain=203.86.55.48'
+          +';path=/;'
+      }
+      setUuid('JSESSIONID','2355ED42DA0667A5C7C68D516AE34D33')
+      setUuid('bhhoa.session.id','adc91790ec26436eb41a041c27d5a532')
+      var orderIdsList = new Array();
+      orderIdsList.push('f1dd9765b1ae46abb16012290aad7c56');
+      orderIdsList.push('1');
+
+      var params = {
+        businessList:orderIdsList.join(",")
+      };
+      XHR.shuayuyue(params).then((res)=>{
+        console.log(res);
+        
       })
     }
   }

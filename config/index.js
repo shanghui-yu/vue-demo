@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/bx': {
+        target: 'http://203.86.55.48', //你的目标域名
+        changeOrigin: true,
+        pathRewrite: {
+          '^/bx': 'http://203.86.55.48'
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: ip, // can be overwritten by process.env.HOST

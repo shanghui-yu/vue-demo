@@ -14,5 +14,12 @@ class XHR {
       type: 'GET'
     })
   }
+  shuayuyue (json) {  // 文章详情
+    return fetch({
+      url: `/bx/Residence/a/rrs/reservation/getData`,
+      body: json,
+      type: 'POST'
+    })
+  }
 }
 export default new XHR()
