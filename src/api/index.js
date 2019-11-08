@@ -21,5 +21,19 @@ class XHR {
       type: 'POST'
     })
   }
+  emailRegister (json) {  // 文章详情
+    return fetch({
+      url: 'http://zhanglei.usercenter.360che.com/email-register',
+      body: json,
+      type: 'POST'
+    })
+  }
+  login (json) {  // 文章详情
+    return fetch({
+      url: 'http://zhanglei.usercenter.360che.com/login',
+      body: json,
+      type: 'POST'
+    })
+  }
 }
 export default new XHR()

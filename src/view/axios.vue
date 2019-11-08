@@ -3,7 +3,6 @@
     <h1>axios接口请求</h1>
     <span>{{mes}}</span>
     <div v-html="this.datas.content"></div>
-
   </div>
 </template>
 

@@ -12,6 +12,7 @@ import Axios from '../view/axios'
 import ScrollLeft from '../view/scrollLeft'
 import Decorate from '../view/decorate'
 import Vuexs from '@/view/vuex.vue'
+import Registered from '@/view/registered.vue'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -68,6 +69,11 @@ export default new Router({
       path: '/Vuexs',
       name: 'Vuexs',
       component: Vuexs
+    },
+    {
+      path: '/Registered',
+      name: 'Registered',
+      component: Registered
     }
   ]
 })

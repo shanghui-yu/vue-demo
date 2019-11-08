@@ -1,3 +1,4 @@
+import TextArea from '@/components/ContentEdit/TextArea';
 <template>
   <div class="waaper">
     <ul class="manu">
@@ -26,6 +27,9 @@
       </li>
       <li>
         <router-link :to="{ name: 'Vuexs'}">9.vuex</router-link>
+      </li>
+      <li>
+        <router-link :to="{ name: 'Registered'}">10.测试接口注册registered</router-link>
       </li>
     </ul>
   </div>
