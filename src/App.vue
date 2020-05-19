@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="middle-app">
     <img src="./assets/logo.png">
     <router-view></router-view>
   </div>
@@ -39,5 +39,9 @@ body{
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.middle-app{
+  width: 80%;
+  margin:0 auto;
 }
 </style>

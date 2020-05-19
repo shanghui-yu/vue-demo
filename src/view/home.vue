@@ -16,6 +16,7 @@ import TextArea from '@/components/ContentEdit/TextArea';
       <li>
         <router-link :to="{ name: 'JsEs6'}">5.es6语法</router-link>
       </li>
+      <li id="PAGE_AD_57364854" class="bbs-ad" v-show="AD"></li>
       <li>
         <router-link :to="{ name: 'Axios'}">6.axios请求axios接口请求</router-link>
       </li>
@@ -40,6 +41,7 @@ export default {
   name: 'hello',
   data () {
     return {
+      AD:false,
       msg: 'Welcome to Your Vue.js App',
       info: {
         thread: {
@@ -49,6 +51,13 @@ export default {
     }
   },
   created () {
+    setTimeout(() => {
+      this.AD=true
+      window._THAM.init()
+      // let adScript = document.createElement('script')
+      // adScript.src='https://s.kcimg.cn/public/m_adm.0.1.1.min.js'
+      // document.body.appendChild(adScript)
+    }, 500);
   },
   methods: {
     torouter () {
