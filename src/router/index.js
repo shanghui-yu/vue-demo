@@ -13,6 +13,7 @@ import ScrollLeft from '../view/scrollLeft'
 import Decorate from '../view/decorate'
 import Vuexs from '@/view/vuex.vue'
 import Registered from '@/view/registered.vue'
+import Md5 from '@/view/md5.vue'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -74,6 +75,11 @@ export default new Router({
       path: '/Registered',
       name: 'Registered',
       component: Registered
+    },
+    {
+      path: '/Md5',
+      name: 'Md5',
+      component: Md5
     }
   ]
 })

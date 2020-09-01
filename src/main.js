@@ -6,7 +6,8 @@ import App from './App'
 import 'ant-design-vue/dist/antd.css';
 import router from './router'
 import store from './store'
-
+import md5 from 'js-md5'
+Vue.prototype.$md5 = md5
 Vue.config.productionTip = false
 Vue.use(Antd);
 /* eslint-disable no-new */

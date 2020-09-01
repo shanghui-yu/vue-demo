@@ -32,6 +32,9 @@ import TextArea from '@/components/ContentEdit/TextArea';
       <li>
         <router-link :to="{ name: 'Registered'}">10.测试接口注册registered</router-link>
       </li>
+       <li>
+        <router-link :to="{ name: 'Md5'}">Md5</router-link>
+      </li>
     </ul>
   </div>
 </template>
